@@ -1,0 +1,244 @@
+/* Industry Verticals Grid Section */
+.verticals-section {
+  position: relative;
+  background-color: var(--bg-obsidian);
+  padding: 4rem 2rem 8rem 2rem;
+  overflow: hidden;
+  z-index: 3;
+  margin-top: 50px;
+}
+
+.verticals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 195px;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual Tiles */
+.vertical-tile {
+  background-color: rgba(22, 28, 38, 0.65);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.vertical-tile.span-2x2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.vertical-tile.span-2x1 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.vertical-tile.span-1x2 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.vertical-tile:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.08);
+}
+
+.tile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.tile-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+}
+
+.vertical-tile:hover .tile-icon {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--bg-navy-deep);
+  transform: scale(1.05);
+}
+
+.tile-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  transition: var(--transition-smooth);
+}
+
+.vertical-tile:hover .tile-title {
+  color: var(--accent-gold);
+}
+
+.tile-desc {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0.75rem 0;
+  flex-grow: 1;
+}
+
+.tile-subniches {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.tile-subniches li {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.vertical-tile.span-2x2 .tile-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+}
+
+.vertical-tile.span-2x2 .tile-title {
+  font-size: 1.6rem;
+}
+
+.vertical-tile.span-2x2 .tile-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+.tile-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.75rem;
+  margin-top: auto;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+}
+
+.meta-label {
+  color: var(--text-muted);
+}
+
+.meta-val {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.trending-badge {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--bg-navy-deep);
+  background-color: var(--accent-gold);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px var(--accent-gold-glow);
+  z-index: 2;
+  transition: var(--transition-smooth);
+}
+
+.vertical-tile:hover .trending-badge {
+  background-color: var(--accent-amber);
+}
+
+@media (max-width: 1024px) {
+  .verticals-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 180px;
+  }
+
+  .vertical-tile.span-2x2 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .verticals-section {
+    padding: 3rem 1.5rem 5rem 1.5rem;
+  }
+
+  .verticals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 170px;
+    gap: 1rem;
+  }
+
+  .vertical-tile.span-2x2,
+  .vertical-tile.span-2x1,
+  .vertical-tile.span-1x2 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .vertical-tile.span-2x2 .tile-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.15rem;
+  }
+
+  .vertical-tile.span-2x2 .tile-title {
+    font-size: 1.15rem;
+  }
+
+  .vertical-tile.span-2x2 .tile-desc {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+  }
+
+  .tile-subniches {
+    display: none !important;
+  }
+}
