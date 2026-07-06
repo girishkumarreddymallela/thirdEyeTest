@@ -1,10 +1,9 @@
 .journey-section {
   position: relative;
   background-color: var(--bg-obsidian);
-  padding: 4rem 0 4rem 0;
+  padding: 4rem 0 6rem 0;
   overflow: hidden;
   z-index: 3;
-  margin-top: 50px;
 }
 
 .journey-header-grid {

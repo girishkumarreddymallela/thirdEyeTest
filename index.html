@@ -29,14 +29,22 @@
 
   <!-- Sticky Header Nav  -->
   <header class="header-nav" id="main-nav">
-    <a href="#" class="logo">10,000<span> Ideas.</span></a>
-    <nav class="nav-links">
+    <a href="#hero" class="logo">10,000<span> Ideas.</span></a>
+    <nav class="nav-links" id="nav-links">
       <a href="#ideas" class="nav-link">Explore Ideas</a>
       <a href="#how-it-works" class="nav-link">How It Works</a>
       <a href="#manufacturing" class="nav-link">Manufacturing</a>
       <a href="#funding" class="nav-link">Funding</a>
+      <a href="#verticals" class="nav-link">Industries</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
+  <div class="nav-overlay" id="nav-overlay"></div>
 
   <!-- Hero Section -->
   <section class="hero-section" id="hero">
@@ -1056,7 +1064,11 @@
         </div>
       </a>
     </div>
-    <!-- Diagonal Section Divider (Slants up left-to-right) -->
+  </section>
+
+  <!-- Success Stories / Testimonials Section -->
+  <section class="testimonials-section" id="testimonials">
+    <!-- Diagonal Section Divider -->
     <div class="section-divider">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,120 L1440,0 L1440,-5 L0,-5 Z" fill="var(--bg-obsidian)"></path>
@@ -1152,6 +1164,14 @@
 
   <!-- Newsletter / Join Section -->
   <section class="subscribe-section" id="subscribe">
+    <!-- Diagonal Section Divider -->
+    <div class="section-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,120 L1440,0 L0,-5 Z" fill="var(--bg-navy-deep)"></path>
+        <path d="M0,0 L1440,120" stroke="var(--border-subtle)" stroke-width="2"></path>
+      </svg>
+    </div>
+
     <div class="subscribe-wrapper">
       <h2 class="subscribe-title">Get 1 New Business Idea Every Day — Free</h2>
       <p class="subscribe-desc">Join 15,000+ founders receiving vetted, manufacturing-ready blueprints directly in their inbox every morning.</p>

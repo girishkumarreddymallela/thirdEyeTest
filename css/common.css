@@ -1,13 +1,26 @@
+/* ── Sticky Navigation ── */
 .header-nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
-  z-index: 10;
+  padding: 1rem 3rem;
+  z-index: 100;
+  background-color: rgba(5, 7, 10, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+}
+
+/* Scrolled state — tighter, more opaque */
+.header-nav.scrolled {
+  background-color: rgba(5, 7, 10, 0.92);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.75rem 3rem;
 }
 
 .logo {
@@ -17,6 +30,7 @@
   color: var(--text-primary);
   text-decoration: none;
   letter-spacing: -0.02em;
+  z-index: 101;
 }
 
 .logo span {
@@ -25,20 +39,147 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
 .nav-link {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   text-decoration: none;
   transition: var(--transition-smooth);
   font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-gold);
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover {
   color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Scroll-aware active link */
+.nav-link.active {
+  color: var(--accent-gold);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ── Hamburger Button (Mobile) ── */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  padding: 0;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger → X animation */
+.hamburger-btn.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Styles ── */
+@media (max-width: 768px) {
+  .header-nav {
+    padding: 1rem 1.5rem;
+  }
+
+  .header-nav.scrolled {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    background-color: rgba(5, 7, 10, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-left: 1px solid var(--border-subtle);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  /* Overlay behind open menu */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+
+  .nav-overlay.open {
+    display: block;
+  }
+
+  .btn {
+    width: 100%;
+  }
 }
 
 .btn {
@@ -90,5 +231,36 @@
   }
   .btn {
     width: 100%;
+  }
+}
+
+/* ── Diagonal Section Dividers (single source of truth) ── */
+.section-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.section-divider svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Push section headings below the diagonal divider */
+.section-header {
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .section-divider {
+    height: 40px;
+  }
+  .section-header {
+    padding-top: 2.5rem;
   }
 }

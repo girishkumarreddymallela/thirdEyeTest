@@ -1,10 +1,9 @@
 .manufacturing-section {
   position: relative;
   background-color: var(--bg-navy-deep);
-  padding: 4rem 2rem 8rem 2rem;
+  padding: 4rem 2rem 6rem 2rem;
   overflow: hidden;
   z-index: 3;
-  margin-top: 50px;
   background-image: 
     linear-gradient(rgba(212, 175, 55, 0.012) 1px, transparent 1px), 
     linear-gradient(90deg, rgba(212, 175, 55, 0.012) 1px, transparent 1px);

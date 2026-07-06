@@ -1,10 +1,9 @@
 .funding-section {
   position: relative;
   background-color: var(--bg-obsidian);
-  padding: 4rem 2rem 8rem 2rem;
+  padding: 4rem 2rem 6rem 2rem;
   overflow: hidden;
   z-index: 3;
-  margin-top: 50px;
 }
 
 .funding-columns {
