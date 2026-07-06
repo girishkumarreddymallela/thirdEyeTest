@@ -222,17 +222,7 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-  .header-nav {
-    padding: 1.5rem;
-  }
-  .nav-links {
-    display: none;
-  }
-  .btn {
-    width: 100%;
-  }
-}
+
 
 /* ── Diagonal Section Dividers (single source of truth) ── */
 .section-divider {
