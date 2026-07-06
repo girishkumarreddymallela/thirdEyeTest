@@ -2,7 +2,7 @@
 
 A visually stunning, full-featured single-page business ecosystem website built with pure HTML, CSS, and Vanilla JS. The platform covers idea discovery, business planning, manufacturing, funding, and company building — all in one long-scroll experience.
 
-**Live Demo:** _[Add your Vercel URL here]_
+**Live Demo:** https://third-eye-test.vercel.app/
 **Repository:** https://github.com/girishkumarreddymallela/thirdEyeTest
 
 ---
